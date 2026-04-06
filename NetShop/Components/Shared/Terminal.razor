@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using NetShop.Services
+@rendermode RenderMode.InteractiveServer
+
+<div class="relative h-[230px] w-full overflow-hidden rounded-lg bg-neutral-900 font-mono text-sm text-white shadow-lg">
+    <div class="p-4">
+        <div class="mb-4 flex items-center justify-between">
+            <div class="flex space-x-2">
+                <div class="h-3 w-3 rounded-full bg-red-500"></div>
+                <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
+                <div class="h-3 w-3 rounded-full bg-green-500"></div>
+            </div>
+        </div>
+        <div class="space-y-2">
+            @foreach (var command in _commands)
+            {
+                <div>
+                    <span class="text-green-400">$</span>
+                    <span class="cursor-pointer">@command</span>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private readonly List<string> _commands = new();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var commands = new string[]
+            {
+                "git clone https://github.com/nextjs/saas-starter",
+                "pnpm install",
+                "pnpm db:setup",
+                "pnpm db:migrate",
+                "pnpm db:seed",
+                "pnpm dev 🎉"
+            };
+
+            foreach (var command in commands)
+            {
+                _commands.Add(command);
+
+                StateHasChanged();
+
+                await Task.Delay(700);
+            }
+        }
+    }
+}

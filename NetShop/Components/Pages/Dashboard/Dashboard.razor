@@ -1,0 +1,287 @@
+﻿@page "/dashboard"
+@rendermode InteractiveServer
+
+<PageTitle>Dashboard - home</PageTitle>
+
+<!-- Grid -->
+<div class="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+    <!-- Card -->
+    <div class="flex flex-col rounded-xl border border-gray-200 bg-white shadow-2xs dark:border-neutral-700 dark:bg-neutral-800">
+        <div class="p-4 md:p-5">
+            <div class="flex items-center gap-x-2">
+                <p class="text-xs text-gray-500 uppercase dark:text-neutral-500">Total users</p>
+                <div class="hs-tooltip">
+                    <div class="hs-tooltip-toggle">
+                        <svg class="size-4 shrink-0 text-gray-500 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                            <path d="M12 17h.01" />
+                        </svg>
+                        <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible invisible absolute z-10 inline-block rounded-md bg-gray-900 px-2 py-1 text-xs font-medium text-white opacity-0 shadow-2xs transition-opacity dark:bg-neutral-700" role="tooltip"> The number of daily users </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-1 flex items-center gap-x-2">
+                <h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">72,540</h3>
+                <span class="flex items-center gap-x-1 text-green-600">
+                    <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                        <polyline points="16 7 22 7 22 13" />
+                    </svg>
+                    <span class="inline-block text-sm"> 1.7% </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- End Card -->
+    <!-- Card -->
+    <div class="flex flex-col rounded-xl border border-gray-200 bg-white shadow-2xs dark:border-neutral-700 dark:bg-neutral-800">
+        <div class="p-4 md:p-5">
+            <div class="flex items-center gap-x-2">
+                <p class="text-xs text-gray-500 uppercase dark:text-neutral-500">Sessions</p>
+            </div>
+
+            <div class="mt-1 flex items-center gap-x-2">
+                <h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">29.4%</h3>
+            </div>
+        </div>
+    </div>
+    <!-- End Card -->
+    <!-- Card -->
+    <div class="flex flex-col rounded-xl border border-gray-200 bg-white shadow-2xs dark:border-neutral-700 dark:bg-neutral-800">
+        <div class="p-4 md:p-5">
+            <div class="flex items-center gap-x-2">
+                <p class="text-xs text-gray-500 uppercase dark:text-neutral-500">Avg. Click Rate</p>
+            </div>
+
+            <div class="mt-1 flex items-center gap-x-2">
+                <h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">56.8%</h3>
+                <span class="flex items-center gap-x-1 text-red-600">
+                    <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 17 13.5 8.5 8.5 13.5 2 7" />
+                        <polyline points="16 17 22 17 22 11" />
+                    </svg>
+                    <span class="inline-block text-sm"> 1.7% </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- End Card -->
+    <!-- Card -->
+    <div class="flex flex-col rounded-xl border border-gray-200 bg-white shadow-2xs dark:border-neutral-700 dark:bg-neutral-800">
+        <div class="p-4 md:p-5">
+            <div class="flex items-center gap-x-2">
+                <p class="text-xs text-gray-500 uppercase dark:text-neutral-500">Pageviews</p>
+            </div>
+
+            <div class="mt-1 flex items-center gap-x-2">
+                <h3 class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">92,913</h3>
+            </div>
+        </div>
+    </div>
+    <!-- End Card -->
+</div>
+<!-- End Grid -->
+
+<div class="grid gap-4 sm:gap-6 lg:grid-cols-2">
+    <!-- Card -->
+    <div class="flex min-h-102.5 flex-col rounded-xl border border-gray-200 bg-white p-4 shadow-2xs md:p-5 dark:border-neutral-700 dark:bg-neutral-800">
+        <!-- Header -->
+        <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+                <h2 class="text-sm text-gray-500 dark:text-neutral-500">Income</h2>
+                <p class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">$126,238.49</p>
+            </div>
+
+            <div>
+                <span class="inline-flex items-center gap-x-1 rounded-md bg-teal-100 px-1.5 py-[5px] text-xs font-medium text-teal-800 dark:bg-teal-500/10 dark:text-teal-500">
+                    <svg class="inline-block size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14" />
+                        <path d="m19 12-7 7-7-7" />
+                    </svg>
+                    25%
+                </span>
+            </div>
+        </div>
+        <!-- End Header -->
+
+        <div id="hs-multiple-bar-charts"></div>
+    </div>
+    <!-- End Card -->
+    <!-- Card -->
+    <div class="flex min-h-102.5 flex-col rounded-xl border border-gray-200 bg-white p-4 shadow-2xs md:p-5 dark:border-neutral-700 dark:bg-neutral-800">
+        <!-- Header -->
+        <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+                <h2 class="text-sm text-gray-500 dark:text-neutral-500">Visitors</h2>
+                <p class="text-xl font-medium text-gray-800 sm:text-2xl dark:text-neutral-200">80.3k</p>
+            </div>
+
+            <div>
+                <span class="inline-flex items-center gap-x-1 rounded-md bg-red-100 px-1.5 py-[5px] text-xs font-medium text-red-800 dark:bg-red-500/10 dark:text-red-500">
+                    <svg class="inline-block size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14" />
+                        <path d="m19 12-7 7-7-7" />
+                    </svg>
+                    2%
+                </span>
+            </div>
+        </div>
+        <!-- End Header -->
+
+        <div id="hs-single-area-chart"></div>
+    </div>
+    <!-- End Card -->
+</div>
+
+<!-- Card -->
+<div class="flex flex-col">
+    <div class="overflow-x-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+        <div class="inline-block min-w-full align-middle">
+            <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-2xs dark:border-neutral-700 dark:bg-neutral-800">
+                <!-- Header -->
+                <div class="grid gap-3 border-b border-gray-200 px-6 py-4 md:flex md:items-center md:justify-between dark:border-neutral-700">
+                    <div>
+                        <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">Product</h2>
+                        <p class="text-sm text-gray-600 dark:text-neutral-400">Add products, edit and more.</p>
+                    </div>
+
+                    <div>
+                        <div class="inline-flex gap-x-2">
+                            <button class="inline-flex cursor-pointer items-center gap-x-2 rounded-lg border border-transparent bg-red-600 px-3 py-2 text-sm font-medium text-white hover:bg-red-700 focus:bg-red-700 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50" @onclick="DeleteSelectedAsync">Delete @products.Count(u => u.IsSelected)</button>
+
+                            <NavLink class="inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50" href="dashboard/products/create">
+                                <svg class="size-4 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="M12 5v14" />
+                                </svg>
+                                Add product
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Header -->
+                <!-- Table -->
+                <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+                    <thead class="bg-gray-50 dark:bg-neutral-800">
+                        <tr>
+                            <th scope="col" class="py-3 ps-6 text-start">
+                                <label for="hs-at-with-checkboxes-main" class="flex">
+                                    <input type="checkbox" class="shrink-0 rounded-sm border-gray-300 text-blue-600 checked:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-800 dark:checked:border-blue-500 dark:checked:bg-blue-500 dark:focus:ring-offset-gray-800" id="hs-at-with-checkboxes-main" @bind="IsAllSelected" @bind:event="onchange" />
+                                    <span class="sr-only">Checkbox</span>
+                                </label>
+                            </th>
+
+                            <th scope="col" class="py-3 ps-6 pe-6 text-start lg:ps-3 xl:ps-0">
+                                <div class="flex items-center gap-x-2">
+                                    <span class="text-xs font-semibold text-gray-800 uppercase dark:text-neutral-200">Name</span>
+                                </div>
+                            </th>
+
+                            <th scope="col" class="py-3 ps-6 pe-6 text-start lg:ps-3 xl:ps-0">
+                                <div class="flex items-center gap-x-2">
+                                    <span class="text-xs font-semibold text-gray-800 uppercase dark:text-neutral-200">Price</span>
+                                </div>
+                            </th>
+
+                            <th scope="col" class="py-3 ps-6 pe-6 text-start lg:ps-3 xl:ps-0">
+                                <div class="flex items-center gap-x-2">
+                                    <span class="text-xs font-semibold text-gray-800 uppercase dark:text-neutral-200">Stock</span>
+                                </div>
+                            </th>
+
+                            <th scope="col" class="px-6 py-3 text-start">
+                                <div class="flex items-center gap-x-2">
+                                    <span class="text-xs font-semibold text-gray-800 uppercase dark:text-neutral-200">Status</span>
+                                </div>
+                            </th>
+
+                            <th scope="col" class="px-6 py-3 text-start">
+                                <div class="flex items-center gap-x-2">
+                                    <span class="text-xs font-semibold text-gray-800 uppercase dark:text-neutral-200">Updated</span>
+                                </div>
+                            </th>
+
+                            <th scope="col" class="px-6 py-3 text-start">
+                                <div class="flex items-center gap-x-2">
+                                    <span class="text-xs font-semibold text-gray-800 uppercase dark:text-neutral-200">Created</span>
+                                </div>
+                            </th>
+
+                            <th scope="col" class="px-6 py-3 text-end"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+                        @foreach (var product in products)
+                        {
+                            <tr>
+                                <td class="size-px whitespace-nowrap">
+                                    <div class="py-3 ps-6">
+                                        <label for="hs-at-with-checkboxes-1" class="flex">
+                                            <input type="checkbox" class="shrink-0 rounded-sm border-gray-300 text-blue-600 checked:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-800 dark:checked:border-blue-500 dark:checked:bg-blue-500 dark:focus:ring-offset-gray-800" id="hs-at-with-checkboxes-1" @bind="product.IsSelected" />
+                                            <span class="sr-only">Checkbox</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="size-px whitespace-nowrap">
+                                    <div class="py-3 ps-6 pe-6 lg:ps-3 xl:ps-0">
+                                        <div class="flex items-center gap-x-3">
+                                            <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">@product.Name</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="size-px whitespace-nowrap">
+                                    <div class="py-3 ps-6 pe-6 lg:ps-3 xl:ps-0">
+                                        <div class="flex items-center gap-x-3">
+                                            <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">@product.Price</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="size-px whitespace-nowrap">
+                                    <div class="py-3 ps-6 pe-6 lg:ps-3 xl:ps-0">
+                                        <div class="flex items-center gap-x-3">
+                                            <span class="text-sm font-semibold text-gray-800 dark:text-neutral-200">@product.StockQuantity</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="size-px whitespace-nowrap">
+                                    <div class="px-6 py-3">
+                                        <ProductStatusBadge Status="product.Status.Value" />
+                                    </div>
+                                </td>
+                                <td class="size-px whitespace-nowrap">
+                                    <div class="px-6 py-3">
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">@product.UpdatedAt.ToString("yyyy-MM-dd")</span>
+                                    </div>
+                                </td>
+                                <td class="size-px whitespace-nowrap">
+                                    <div class="px-6 py-3">
+                                        <span class="text-sm text-gray-500 dark:text-neutral-500">@product.CreatedAt.ToString("yyyy-MM-dd")</span>
+                                    </div>
+                                </td>
+                                <td class="size-px whitespace-nowrap">
+                                    <div class="px-6 py-1.5">
+                                        <NavLink class="mr-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline focus:underline focus:outline-hidden dark:text-blue-500" href="@($"dashboard/products/update/{product.Id}")">Edit</NavLink>
+
+                                        <button class="inline-flex cursor-pointer items-center gap-x-1 text-sm font-medium text-red-600 decoration-2 hover:underline focus:underline focus:outline-hidden dark:text-red-500" @onclick="() => DeleteAsync(product.Id)">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <!-- End Table -->
+                <!-- Footer -->
+                <div class="grid gap-3 border-t border-gray-200 px-6 py-4 md:flex md:items-center md:justify-between dark:border-neutral-700">
+                    <div>
+                        <p class="text-sm text-gray-600 dark:text-neutral-400"><span class="font-semibold text-gray-800 dark:text-neutral-200">@products.Count</span> results</p>
+                    </div>
+                </div>
+                <!-- End Footer -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Card -->

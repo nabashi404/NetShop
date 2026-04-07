@@ -12,19 +12,22 @@ NetShop is a fully functional e-commerce application that runs locally to manage
 - **Blazor Web** - Modern interactive UI
 - **Minimal APIs** - High-performance REST endpoints
 - **Stripe API** - Secure payment processing
+- **Tailwind CSS** - Utility-first styling
+- **Preline UI** - Premium component library
 
 ## ✨ Features
 
 - 🛍️ Complete store management (products, inventory, orders)
 - 💳 Stripe payment integration
 - ⚡ Real-time interactive interface
-- 📱 Responsive design
+- 📱 Responsive design with Tailwind CSS & Preline UI
 - 🔐 Production-ready security
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - .NET 10 SDK
+- Node.js & npm
 - Stripe account with API keys
 
 ### Installation
@@ -32,6 +35,7 @@ NetShop is a fully functional e-commerce application that runs locally to manage
 ```bash
 git clone https://github.com/nabashi404/NetShop.git
 cd NetShop
+npm install
 dotnet build
 dotnet run
 ```
@@ -58,6 +62,7 @@ NetShop/
 ├── Components/          # Blazor components
 ├── Services/           # Business logic
 ├── Pages/              # Blazor pages
+├── Endpoints/          # Minimal API endpoints
 ├── appsettings.json    # Configuration
 └── Program.cs          # API & app setup
 ```
@@ -66,6 +71,7 @@ NetShop/
 
 - **Minimal APIs** - Lightweight, high-performance endpoints
 - **Blazor Web Components** - Interactive UI without JavaScript
+- **Tailwind CSS & Preline UI** - Modern, responsive design system
 - **Payment Processing** - Secure Stripe integration
 - **Local Deployment** - Run on your own machine
 

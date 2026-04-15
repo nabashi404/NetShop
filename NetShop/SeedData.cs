@@ -53,9 +53,7 @@ public class SeedData
                 StockQuantity = 0,
                 Status = ProductStatus.Active,
                 StripeProductId = stripeProduct.Id,
-                StripePriceId = price.Id,
-                CreatedAt = stripeProduct.Created,
-                UpdatedAt = stripeProduct.Updated
+                StripePriceId = price.Id
             };
 
             context.Products.Add(product);

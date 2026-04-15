@@ -1,18 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using NetShop.Data;
+using NetShop.Interfaces;
 using NetShop.Models;
 using Stripe;
-using Stripe.Checkout;
 
 namespace NetShop.Endpoints;
 
 public static class StripeEndpoints
 {
-    private static readonly PriceService _priceService = new();
-
     public static void MapStripeEndpoints(this IEndpointRouteBuilder endpoint)
     {
         var route = endpoint.MapGroup("/api/stripe");
@@ -20,36 +15,26 @@ public static class StripeEndpoints
         route.MapPost("/webhook", Webhook);
     }
 
-    static async Task<IResult> Webhook([FromServices] UserManager<ApplicationUser> userManager, [FromServices] ApplicationDbContext context, HttpRequest request, [FromServices] IOptions<StripeSettings> stripeSettings)
+    static async Task<IResult> Webhook([FromServices] IPaymentService paymentService, HttpRequest request, [FromServices] IOptions<StripeSettings> stripeSettings)
     {
-        var requestContent = await new StreamReader(request.Body).ReadToEndAsync();
+        using var reader = new StreamReader(request.Body);
+        var requestContent = await reader.ReadToEndAsync();
 
-        var signature = request.Headers["Stripe-Signature"].ToString();
+        if (!request.Headers.TryGetValue("Stripe-Signature", out var signature)) return Results.BadRequest();
 
-        var stripeEvent = EventUtility.ConstructEvent(requestContent, signature, stripeSettings.Value.WebhookSecretKey);
-
-        if (stripeEvent.Type == "checkout.session.completed")
+        try
         {
-            var session = stripeEvent.Data.Object as Session;
+            var stripeEvent = EventUtility.ConstructEvent(requestContent, signature, stripeSettings.Value.WebhookSecretKey);
 
-            var user = await userManager.Users.FirstOrDefaultAsync(u => u.StripeCustomerId == session.CustomerId);
-
-            var sessionLineItemService = new SessionLineItemService();
-
-            var lineItems = sessionLineItemService.ListAutoPagingAsync(session.Id);
-
-            await foreach (var item in lineItems)
-            {
-                var productId = long.Parse(item.Price.Product.ToString());
-
-                var product = await context.Products.FindAsync(productId);
-
-                if (product == null) continue;
-
-                context.Orders.Add(new Models.Entities.Order());
-            }
-
-            await context.SaveChangesAsync();
+            await paymentService.HandleStripeWebhookAsync(stripeEvent);
+        }
+        catch (StripeException error)
+        {
+            return Results.BadRequest(error.Message);
+        }
+        catch
+        {
+            return Results.StatusCode(500);
         }
 
         return TypedResults.Ok();

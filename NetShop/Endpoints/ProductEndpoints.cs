@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using NetShop.Interfaces;
+﻿using NetShop.Interfaces;
 using NetShop.Models.Dtos;
 
 namespace NetShop.Endpoints;
@@ -10,13 +9,11 @@ public static class ProductEndpoints
     {
         var route = app.MapGroup("/api/products");
 
-        var adminAuthorize = new AuthorizeAttribute { Roles = "Admin" };
-
         route.MapGet("/", GetAll);
         route.MapGet("/{id}", Get);
-        route.MapPost("/", Create).RequireAuthorization(adminAuthorize);
-        route.MapPut("/{id}", Update).RequireAuthorization(adminAuthorize);
-        route.MapDelete("/{id}", Delete).RequireAuthorization(adminAuthorize);
+        route.MapPost("/", Create).RequireAuthorization("Admin");
+        route.MapPut("/{id}", Update).RequireAuthorization("Admin");
+        route.MapDelete("/{id}", Delete).RequireAuthorization("Admin");
     }
 
     static async Task<IResult> GetAll(IProductService service)
@@ -30,28 +27,28 @@ public static class ProductEndpoints
     {
         var result = await service.GetAsync(id);
 
-        return result.IsSuccess ? Results.Ok(result.Value) : Results.NotFound(result.Errors);
+        return result.IsSuccess ? Results.Ok(result.Value) : Results.NotFound();
     }
 
     static async Task<IResult> Create(IProductService service, ProductDto productDto)
     {
         var result = await service.CreateAsync(productDto);
 
-        return result.IsSuccess ? Results.Created($"/api/products/{result.Value.Id}", result.Value) : Results.BadRequest(result.Errors);
+        return result.IsSuccess ? Results.CreatedAtRoute($"/api/products/{result.Value.Id}", result.Value) : Results.BadRequest(result.Errors);
     }
 
     static async Task<IResult> Update(IProductService service, long id, ProductDto productDto)
     {
         var result = await service.UpdateAsync(id, productDto);
 
-        return result.IsSuccess ? Results.NoContent() : Results.NotFound(result.Errors);
+        return result.IsSuccess ? Results.NoContent() : Results.NotFound();
     }
 
     static async Task<IResult> Delete(IProductService service, long id)
     {
         var result = await service.DeleteAsync(id);
 
-        return result.IsSuccess ? Results.NoContent() : Results.NotFound(result.Errors);
+        return result.IsSuccess ? Results.NoContent() : Results.NotFound();
     }
 }
 

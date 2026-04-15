@@ -39,7 +39,7 @@ public class ProductService(ApplicationDbContext context) : IProductService
         {
             Name = productDto.Name,
             Description = productDto.Description,
-            Images = productDto.Images
+            Images = productDto.Images.Count() == 0 ? null : productDto.Images
         };
 
         var stripeProduct = await _productService.CreateAsync(stripeProductOptions);
@@ -64,9 +64,7 @@ public class ProductService(ApplicationDbContext context) : IProductService
             StockQuantity = productDto.StockQuantity,
             Status = productDto.Status,
             StripeProductId = stripeProduct.Id,
-            StripePriceId = stripePrice.Id,
-            UpdatedAt = DateTime.UtcNow,
-            CreatedAt = DateTime.UtcNow
+            StripePriceId = stripePrice.Id
         };
 
         await _context.Products.AddAsync(product);
@@ -111,7 +109,6 @@ public class ProductService(ApplicationDbContext context) : IProductService
         product.StockQuantity = productDto.StockQuantity;
         product.Status = productDto.Status;
         product.StripePriceId = stripePrice.Id;
-        product.UpdatedAt = DateTime.UtcNow;
 
         _context.Update(product);
 

@@ -2,12 +2,13 @@
 using Microsoft.AspNetCore.Identity;
 using NetShop.Data;
 using NetShop.Interfaces;
+using NetShop.Models;
 
 namespace NetShop.Components.Pages;
 
 public partial class Checkout : ComponentBase
 {
-    [Parameter] public required string StripePriceId { get; set; }
+    [Parameter] public required long ProductId { get; set; }
 
     [Inject] private IStripeService StripeService { get; set; } = default!;
 
@@ -17,11 +18,17 @@ public partial class Checkout : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
-        var users = UserManager.Users;
+        var demoUser = await UserManager.FindByEmailAsync("demo@demo.com");
 
-        var demoUser = users.FirstOrDefault();
+        if (demoUser == null) return;
 
-        var result = await StripeService.CreateSessionAsync(demoUser, StripePriceId);
+        var cart = new List<CartItem>
+        {
+            new() { ProductId = 1, Quantity = 2 },
+            new() { ProductId = 2, Quantity = 1 },
+        };
+
+        var result = await StripeService.CreateSessionAsync(demoUser, cart, Navigation.BaseUri);
 
         if (result.IsSuccess && result.Value != null)
         {
